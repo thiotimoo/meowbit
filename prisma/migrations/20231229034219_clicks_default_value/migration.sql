@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE `link` MODIFY `clicks` INTEGER NOT NULL DEFAULT 0;

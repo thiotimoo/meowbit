@@ -3,12 +3,16 @@ generator client {
 }
 
 datasource db {
-    provider = "postgresql"
+    provider = "mysql"
     url = env("DATABASE_URL")
     directUrl = env("DIRECT_URL")
 }
 
 model Link {
-    id          String @id
-    user_id     String 
+    id        Int @id @default(autoincrement())
+    url       String
+    alias     String   @unique
+    clicks    Int      @default(0)
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
 }
